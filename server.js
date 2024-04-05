@@ -1,16 +1,17 @@
 const { PDFDocument, rgb } = require("pdf-lib");
 const moment = require("moment");
+require('dotenv').config();
 const AWS = require("aws-sdk");
 const fs = require("fs");
 
-const S3_REGION = "eu-north-1";
-const S3_BUCKET_NAME = "vehicleschallan";
-const TWILIO_PHONE_NUMBER = "+16782646879";
+const S3_REGION = process.env.S3_REGION;
+const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME;
+const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER;
 
 const s3 = new AWS.S3({ region: S3_REGION });
 
-const accountSid = "ACb61f358c4f26ca90a55137ada3807b2e";
-const authToken = "153af9ed94e6ddc0f3248de888c8cc51";
+const accountSid = process.env.ACCOUNTSID;
+const authToken = process.env.AUTHTOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 async function generateBill(
