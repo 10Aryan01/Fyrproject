@@ -119,19 +119,19 @@ void publishMessage(const String& data) {
   if (http.begin(client, "https://9ycawm1u61.execute-api.eu-north-1.amazonaws.com/V3/")) {
     Serial.println("Connected to server");
 
-    String body = "{\"latitude\":\"" + latitude + 
-                  "\",\"longitude\":\"" + longitude + 
-                  "\",\"carNumber\":\"AS2343R533\"" +
-                  ",\"violatorName\":\"Sudarshan Bhuyan\"" +
-                  ",\"speedData\":\"" + speed + " km/h\"" +
-                  ",\"challanAmount\":\"5000 /-\"" +
-                  ",\"minorDetails\":\"'Speeding in a school zone'\"" +
-                  ",\"phone_number\":\"+916001012501\"" +
-                  ",\"email\":\"rrouchangogoi@gmail.com\"" +
-                  ",\"Challan_no\":\"MTPCCC180019354\"" +
-                  ",\"Payment_Status\":\"Pending\"" +
-                  ",\"Vehicle_name\":\"Tata Tigor\"" +
-                  ",\"Vehicle_type\":\"Light motor vehicle\"}";
+    String body = "{\"latitude\":\"" + latitude +  
+               "\",\"longitude\":\"" + longitude +  
+               "\",\"carNumber\":\"AS2343R533\"," + 
+               "\"violatorName\":\"Sudarshan Bhuyan\"," + 
+               "\"speedData\":\"" + speed + " km/h\"," + 
+               "\"challanAmount\":\"5000 /-\"," + 
+               "\"minorDetails\":\"Speeding in a school zone\"," + 
+               "\"phone_number\":\"+916001012501\"," + 
+               "\"email\":\"rrouchangogoi@gmail.com\"," + 
+               "\"Challan_no\":\"MTPCCC180019354\"," + 
+               "\"Payment_Status\":\"Pending\"," + 
+               "\"Vehicle_name\":\"Tata Tigor\"," + 
+               "\"Vehicle_type\":\"Light motor vehicle\"}";
 
     http.setTimeout(60000);
     int httpCode = http.POST(body);
